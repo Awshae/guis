@@ -7,32 +7,32 @@ from OpenGL.GLU import *
 def draw_pyramid():
     glBegin(GL_TRIANGLES)
     # Front face
-    glColor3f(1.0, 0.0, 0.0)
+    glColor3f(0.1,1.0,1.0)
     glVertex3f(0.0, 1.0, 0.0)
     glVertex3f(-1.0, -1.0, 1.0)
     glVertex3f(1.0, -1.0, 1.0)
 
     # Right face
-    glColor3f(0.0, 1.0, 0.0)
+    glColor3f(0.38,0.78,0.79)
     glVertex3f(0.0, 1.0, 0.0)
     glVertex3f(1.0, -1.0, 1.0)
     glVertex3f(1.0, -1.0, -1.0)
 
     # Back face
-    glColor3f(0.0, 0.0, 1.0)
+    glColor3f(0.2,0.6,0.6)
     glVertex3f(0.0, 1.0, 0.0)
     glVertex3f(1.0, -1.0, -1.0)
     glVertex3f(-1.0, -1.0, -1.0)
 
     # Left face
-    glColor3f(1.0, 1.0, 0.0)
+    glColor3f(0.05, 0.7, 0.7)
     glVertex3f(0.0, 1.0, 0.0)
     glVertex3f(-1.0, -1.0, -1.0)
     glVertex3f(-1.0, -1.0, 1.0)
     glEnd()
 
     glBegin(GL_QUADS)
-    glColor3f(86, 0, 1.0)
+    glColor3f(0.09, 0.39, 0.5)
     glVertex3f(-1.0, -1.0, -1.0)
     glVertex3f(-1.0, -1.0, 1.0)
     glVertex3f(1.0, -1.0, 1.0)
