@@ -51,7 +51,8 @@ pygame.init()
 (width, height) = (1366, 786)
 screen = pygame.display.set_mode((width, height), OPENGL | DOUBLEBUF)
 clock = pygame.time.Clock()
-rotation = 0.0
+rotation_x = 0.0
+rotation_y = 0.0
 
 while True:
     for event in pygame.event.get():
@@ -59,7 +60,24 @@ while True:
             pygame.quit()
             sys.exit()
 
-    rotation += 1.0
+    keys = pygame.key.get_pressed()
+
+    if keys[pygame.K_UP]:
+        rotation_x += 1.0
+        glRotate(1.0, 1.0, 0.0, 0.0)
+
+    if keys[pygame.K_DOWN]:
+        rotation_x -= 1.0
+        glRotate(-1.0, 1.0, 0.0, 0.0)
+
+    if keys[pygame.K_RIGHT]:
+        rotation_y += 1.0
+        glRotate(1.0, 0.0, 1.0, 0.0)
+
+    if keys[pygame.K_LEFT]:
+        rotation_y -= 1.0
+        glRotate(-1.0, 0.0, 1.0, 0.0)
+
     glClear(GL_COLOR_BUFFER_BIT)
     glClear(GL_DEPTH_BUFFER_BIT)
     glEnable(GL_DEPTH_TEST)
@@ -69,8 +87,9 @@ while True:
     gluPerspective(30, float(width)/height, 1, 1000)
     glMatrixMode(GL_MODELVIEW)
     glLoadIdentity()
-    glTranslate(0, 0, -50)#move back far enough to see this object 
-    glRotate(rotation,1, 1, 0)#NOTE: this is applied BEFORE the translation due to OpenGL multiply order
+    glTranslate(0, 0, -50)
+    glRotate(rotation_x,1, 0, 0)
+    glRotate(rotation_y,0, 1, 0)
 
     draw_cylinder(4, 7, 1000)
     pygame.display.flip()
