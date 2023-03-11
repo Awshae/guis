@@ -21,20 +21,20 @@ def draw_cylinder(radius, height, num_slices):
         circle_pts.append(pt)
 
     glBegin(GL_TRIANGLE_FAN)#drawing the back circle
-    glColor(1, 0, 0)
+    glColor(179/255,88/255,43/255)
     glVertex(0, 0, h/2.0)
     for (x, y) in circle_pts:
         z = h/2.0
-        glColor(0, 0, 1)
+        glColor(179/255,88/255,43/255)
         glVertex(x, y, z)
     glEnd()
 
     glBegin(GL_TRIANGLE_FAN)#drawing the front circle
-    glColor(1, 0, 0)
+    glColor(0.58, 0.19, 0)
     glVertex(0, 0, -h/2.0)
     for (x, y) in circle_pts:
         z = -h/2.0
-        glColor(0, 0, 1)
+        glColor(0.58, 0.19,0)
         glVertex(x, y, z)
     glEnd()
 
@@ -42,9 +42,9 @@ def draw_cylinder(radius, height, num_slices):
     for (x, y) in circle_pts:
         z = h/2.0
         glVertex(x, y, z)
-        glColor(0, 1, 0)
+        glColor(1, 0.33, 0)
         glVertex(x, y, -z)
-        glColor(1,1,0)
+        glColor(1,0.7,0.49)
     glEnd()
 
 pygame.init()
